@@ -1,5 +1,5 @@
 //Uniform Resource Locator
-// Schema://host:port/path?query#hash  //Schema 协议名    host：主机名  prot：端口号  
+// Schema://host:port/path?query#hash  //Schema 协议名    host：主机名  port：端口号  
 
 // port: 22 ssh, 80:http  443:https  27017:mongodb
 
@@ -8,7 +8,7 @@
 // const server = http.createServer();
 // server.listen(8808)
 
-// server.on('request',(reqeust,response) =>{
+// server.on('request',(request,response) =>{
 //   response.statusCode = 200;
 //   response.end('welcome to my first http server');
 // });
@@ -42,7 +42,7 @@
 
 
 
-//  localhost:8808/hello?i_need_monery=true&how_much=1000
+//  localhost:8808/hello?i_need_money=true&how_much=1000
 const http = require('http');
 const server = http.createServer();
 server.listen(8808)
@@ -62,10 +62,10 @@ server.on('request',(request,response) =>{
 
   if(url.indexOf('/hello') > -1){
     responseStr = 'hi there';
-    console.log(query.i_need_monery)
+    console.log(query.i_need_money)
     console.log(query.how_much)
     
-    if(query.i_need_monery === 'true' && Number(query.how_much) > 500){
+    if(query.i_need_money === 'true' && Number(query.how_much) > 500){
       responseStr = 'go away';
     }else{
       responseStr = 'ok, here you ary';
