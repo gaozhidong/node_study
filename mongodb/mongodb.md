@@ -1,7 +1,4 @@
- // tremendous   巨大的
 
-
- // deepin       深化版的
  # MongoDB
 
 ```
