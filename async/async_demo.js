@@ -2,10 +2,14 @@
 
 function foo(params, callback) {
   setTimeout(() => {
-    callback(null, 'hello')
+    callback(new Error('oops'), 'hello')
   }, 1000);
 }
 
 foo({}, (err, result) => {
-  console.log(result)
+  if(err){
+    console.log(err.stack)
+  }else{
+    console.log(result)
+  }
 })
