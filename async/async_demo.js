@@ -7,9 +7,14 @@ function foo(params, callback) {
 }
 
 foo({}, (err, result) => {
-  if(err){
+  if (err) {
     console.log(err.stack)
-  }else{
+  } else {
     console.log(result)
   }
+  bar({}, () => {
+    zoo({}, () => {
+
+    })
+  })
 })
