@@ -247,21 +247,6 @@ Last-Modified       | 实体最后一次修改时间
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 参考链接
 
 [HTTP协议入门](http://www.ruanyifeng.com/blog/2016/08/http.html) 阮一峰
