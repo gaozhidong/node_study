@@ -24,12 +24,19 @@ const UseModel = mongoose.model('user', UserSchema);
 
 (async () => {
 
-  const user = await UseModel.create({
-    name: 'gao',
-    age: 20,
+  // const user = await UseModel.create({
+  //   name: 'gao',
+  //   age: 20,
+  // })
+
+  // return user
+
+  const users = await UseModel.findOne({
+    name: "gao"
   })
 
-  return user
+  return users
+
 
 })()
   .then(r => {
