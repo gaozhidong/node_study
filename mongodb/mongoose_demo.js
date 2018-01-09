@@ -31,9 +31,7 @@ const UseModel = mongoose.model('user', UserSchema);
 
   // return user
 
-  const users = await UseModel.findOne({
-    name: "gao"
-  })
+  const users = await UseModel.find({})
 
   return users
 
