@@ -19,28 +19,38 @@ const UserSchema = new Schema({
   age: { type: Number, max: 140, min: 0 },
 });
 
-const UseModel = mongoose.model('user', UserSchema);
+const UserModel = mongoose.model('user', UserSchema);
 
 
-(async () => {
+(async (params) => {
 
-  // const user = await UseModel.create({
-  //   name: 'gao',
-  //   age: 20,
-  // })
+  let filter = {}
+  if(params.name){
+    filter.name = params.name
+  }
+  const flow = UserModel.find(filter)
 
-  // return user
+  if(params.projection){
+    flow.select(params.projection)
+  }
 
-  // const users = await UseModel.find({}) //find返回数组   findOne返回对象
+  if(params.sort){
+    flow.sort(params.sort)
+  }
+
+  const users = await flow.exec()
+
+  return users
 
 
-  // return users
-
-  const user = await UseModel.remove({name:"laoyang"})
-  return user
 
 
-})()
+})({
+  name:"xiaohong",
+  projection:{age:1},
+  // sort:{age:-1}
+  sort:'-age'
+})
   .then(r => {
     console.log(r)
   })
