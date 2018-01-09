@@ -36,7 +36,7 @@ const UseModel = mongoose.model('user', UserSchema);
 
   // return users
 
-  const user = await UseModel.update({name:"gao"},{age:88})
+  const user = await UseModel.remove({name:"laoyang"})
   return user
 
 
