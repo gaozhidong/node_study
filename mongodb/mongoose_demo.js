@@ -1,28 +1,49 @@
-// const mongoose = require('mongoose');
+// import { error } from 'util';
 
-// mongoose.Promise = Promise;
+const mongoose = require('mongoose');
 
-// const Schema = mongoose.Schema;
+mongoose.Promise = Promise;
 
-// const ObjectId = Schema.Types.ObjectId;
-
-// const uri = `mongodb://localhost:27017/what_i_love`;
-// const connection = mongoose.connect(uri, { useMongoClient: true });
-
-// const db = mongoose.connection;
-
-// const UserSchema = new Schema({
-//   name: { type: String, required: true, unique: true, index: 1 },
-//   age: { type: Number, max: 140, min: 0 },
-// });
-
-// const UseModel = mongoose.model('user', UserSchema);
+const uri = `mongodb://localhost:27017/what_i_love`;
+const connection = mongoose.connect(uri, { useMongoClient: true });
+const db = mongoose.connection;
 
 
-// db.on('open', () => {
-//   console.log('db connect')
-// })
 
-// db.on('error', (e) => {
-//   console.log(e)
-// })
+const Schema = mongoose.Schema;
+
+const ObjectId = Schema.Types.ObjectId;
+
+const UserSchema = new Schema({
+  name: { type: String, required: true, unique: true, index: 1 },
+  age: { type: Number, max: 140, min: 0 },
+});
+
+const UseModel = mongoose.model('user', UserSchema);
+
+
+(async () => {
+
+  const user = await UseModel.create({
+    name: 'gao',
+    age: 20,
+  })
+
+  return user
+
+})()
+  .then(r => {
+    console.log(r)
+  })
+  .catch(e => {
+    console.log(e)
+  })
+
+db.on('open', () => {
+  console.log('db connect  已经连接了')
+})
+
+db.on('error', (e) => {
+  console.log(e)
+})
+
