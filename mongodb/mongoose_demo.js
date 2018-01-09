@@ -31,9 +31,13 @@ const UseModel = mongoose.model('user', UserSchema);
 
   // return user
 
-  const users = await UseModel.find({})
+  // const users = await UseModel.find({}) //find返回数组   findOne返回对象
 
-  return users
+
+  // return users
+
+  const user = await UseModel.update({name:"gao"},{age:88})
+  return user
 
 
 })()
