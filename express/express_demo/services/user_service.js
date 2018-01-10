@@ -2,6 +2,12 @@ const User = require('../models/in_memo/user')
 
 module.exports.getAllUsers = function () {
 
-  return
+  return User.list()
+
+}
+
+module.exports.addNewUser = (firstName, lastName, age) => {
+
+  return User.insert(firstName, lastName, age)
 
 }
