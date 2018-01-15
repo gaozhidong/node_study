@@ -87,8 +87,8 @@ async function getUserByNamePass(username, password) {
     username,
     password: passToFind,
   }, {
-    password: 0,
-  });
+      password: 0,
+    });
 
   return found;
 }

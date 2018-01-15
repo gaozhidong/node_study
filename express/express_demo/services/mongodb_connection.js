@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const logger = require('../utils/loggers/app_logger');
-const mongoSetting = require('../setting').mongo;
+// const mongoSetting = require('../setting').mongo;
 
 mongoose.Promise = Promise;
 
